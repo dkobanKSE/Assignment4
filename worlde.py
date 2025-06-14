@@ -32,7 +32,7 @@ def char_is_str(guess):
     
     factor = any(char_of_guess.isdigit() for char_of_guess in guess)
     
-    spes_char = ['{','}',',','.','/','|','?','!','-','+','=','[',']','#','@','\\', ' ']
+    spes_char = ['{','}',',','.','/','|','?','!','-','+','=','[',']','#','@','\\']
     for chars in guess:
         if chars in spes_char:
             factor = True
@@ -51,7 +51,7 @@ def main():
     
     while tries != 0: 
         try: 
-            guess = input("Attempt "+str(7 - tries)+"/6 – Enter guess: ").lower()
+            guess = input("Attempt "+str(7 - tries)+"/6 – Enter guess: ").lower().replace(" ", "")
         
             if guess == secret_word:
                 print("You win!!!")
