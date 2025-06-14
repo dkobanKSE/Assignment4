@@ -27,12 +27,17 @@ def creat_word() -> str:
     
     return secret_word    
  
-def char_is_num(guess):
-    if any(char_guess.isdigit() for char_guess in guess):
-        return True
+def char_is_str(guess):
+    factor = False
     
-    else:
-        return False
+    if any(char_of_guess.isdigit() for char_of_guess in guess): factor = True
+    
+    spes_char = ['{','}',',','.','/','|','?','!','-','+','=','[',']','#','@','\\', ' ']
+    for chars in guess:
+        if chars in spes_char:
+            factor = True
+            
+    return factor
      
  
 def main():
@@ -52,7 +57,7 @@ def main():
                 print("You win!!!")
                 break
             
-            if char_is_num(guess) == True:
+            if char_is_str(guess) == True:
                 print("Write only letters in your word")
                 continue
         
@@ -74,7 +79,7 @@ while True:
         print("Goodbye!")
         break
     
-    elif start_game != "y" or start_game != "n":
+    elif start_game != "y" and start_game != "n":
         print("Write only n(no) or y(yes)")
         continue
     
