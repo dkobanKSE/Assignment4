@@ -30,7 +30,7 @@ def creat_word() -> str:
 def char_is_str(guess):
     factor = False
     
-    if any(char_of_guess.isdigit() for char_of_guess in guess): factor = True
+    factor = any(char_of_guess.isdigit() for char_of_guess in guess)
     
     spes_char = ['{','}',',','.','/','|','?','!','-','+','=','[',']','#','@','\\', ' ']
     for chars in guess:
